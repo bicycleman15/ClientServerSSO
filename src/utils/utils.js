@@ -1,7 +1,7 @@
 import { verify } from 'jsonwebtoken';
 import { publicKey } from '../config/keys';
 
-const verifyToken = (req ,token, res, tokenName) => {
+const verifyToken = (req, token, res, tokenName) => {
     try {
         const decoded = verify(token, publicKey, {
             algorithms: ['RS256'],
@@ -25,7 +25,7 @@ const verifyToken = (req ,token, res, tokenName) => {
 
 const get_cookies = (all_cookies) => {
     var cookies = {};
-    for(var j=0;j<all_cookies.length;j++) {
+    for (var j = 0; j < all_cookies.length; j++) {
         var cookie_string = all_cookies[j].split(';');
         var cookiename = cookie_string[0].split('=')[0]
         cookies[cookiename] = cookie_string[0].split('=')[1];
